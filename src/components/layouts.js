@@ -106,7 +106,7 @@ const menuItems = [
   // },
   {
     // href: "/billing2",
-    title: "Billing Management",
+    title: "Financials",
     icon: "/privacy.png",
     sub: true,
     active: false,
@@ -433,7 +433,7 @@ const Layout = ({ children, loader, toaster }) => {
                           onClick={() => {
                             router.push(item.href);
 
-                            const newItem = menulist.find(f => f.title === 'Billing Management')
+                            const newItem = menulist.find(f => f.title === 'Financials')
                             newItem.active = false;
                             setMenulist([...menulist])
                             if (mobile) {
@@ -512,7 +512,7 @@ const Layout = ({ children, loader, toaster }) => {
                           {Constants[item?.title.replace(' ', '')](item.active ? '#FB1913' : '#ffffff', 18)}
                           <div>
                             <a
-                              className={`flex ml-2 font-bold hover:text-white cursor-pointer text-sm ${item.active
+                              className={`flex ml-2 font-bold hover:text-white cursor-pointer text-md ${item.active
                                 ? "text-red-900"
                                 : "text-white"
                                 }`}

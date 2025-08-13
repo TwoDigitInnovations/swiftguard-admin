@@ -63,7 +63,7 @@ const Statistics = (color, size) => {
   )
 }
 
-const BillingManagement = (color, size) => {
+const Financials = (color, size) => {
   return (
     <svg height={size} viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clipPath="url(#clip0_32_332)">
@@ -89,6 +89,7 @@ const Editprofile = (color, size) => {
     </svg>
   )
 }
+
 const Settings = (color, size) => {
   return (
     <svg height={size} viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -135,7 +136,7 @@ const Constants = {
   Guardlist,
   Activityreport,
   Statistics,
-  BillingManagement,
+  Financials,
   Editprofile,
   Settings
 };
