@@ -1,0 +1,549 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+
+
+body,
+html {
+  font-family: Arial, Helvetica, sans-serif !important;
+
+  /* 👇️ or use Operating system default fonts 👇️ */
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif; */
+}
+
+
+
+
+:root {
+  --fc-small-font-size: .85em;
+  --fc-page-bg-color: white;
+  --fc-neutral-bg-color: white;
+  --fc-neutral-text-color: white;
+  --fc-border-color: black;
+  --fc-page-text-color: white;
+
+  --fc-button-text-color: #fff;
+  --fc-button-bg-color: black;
+  --fc-button-border-color: red !important;
+  --fc-button-hover-bg-color: red;
+  --fc-button-hover-border-color: #1a252f;
+  --fc-button-active-bg-color: red;
+  --fc-button-active-border-color: red !important;
+
+  --fc-event-bg-color: #3788d8;
+  --fc-event-border-color: #3788d8;
+  --fc-event-text-color: #fff;
+  --fc-event-selected-overlay-color: rgba(0, 0, 0, 0.25);
+
+  --fc-more-link-bg-color: white;
+  --fc-more-link-text-color: inherit;
+
+  --fc-event-resizer-thickness: 8px;
+  --fc-event-resizer-dot-total-width: 8px;
+  --fc-event-resizer-dot-border-width: 1px;
+
+  --fc-non-business-color: rgba(215, 215, 215, 0.3);
+  --fc-bg-event-color: rgb(143, 223, 130);
+  --fc-bg-event-opacity: 0.3;
+  --fc-highlight-color: rgba(188, 232, 241, 0.3);
+  --fc-today-bg-color: rgba(255, 220, 40, 0.15);
+  --fc-now-indicator-color: red;
+}
+
+
+.fc .fc-daygrid-event {
+  z-index: 6;
+  margin-top: 1px;
+  border-radius: 10px;
+  height: 15px;
+}
+
+.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
+  position: relative;
+  min-height: 2em;
+  right: 0px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.rmsc {
+  --rmsc-main: #4285f4;
+  --rmsc-hover: rgb(127 29 29 / var(--tw-border-opacity)) !important;
+  --rmsc-selected: rgb(127 29 29 / var(--tw-border-opacity)) !important;
+  --rmsc-border: rgb(127 29 29 / var(--tw-border-opacity)) !important;
+  --rmsc-gray: #aaa;
+  --rmsc-bg: black !important;
+  --rmsc-p: 10px;
+  --rmsc-radius: 4px;
+  --rmsc-h: 38px;
+  /* border-width: 2px !important; */
+}
+
+.rmsc .dropdown-container:focus-within {
+  box-shadow: none !important;
+  border-color: rgb(127 29 29 / var(--tw-border-opacity)) !important;
+  border-width: 2px !important;
+}
+
+.rmsc * {
+  box-sizing: border-box;
+  transition: all .2s ease;
+  color: gray !important;
+  outline: none !important;
+
+
+}
+
+.rmsc .dropdown-container {
+  margin-top: 2px !important;
+  border: 2px solid var(--rmsc-border) !important;
+}
+
+.rmsc::placeholder {
+  color: red !important;
+}
+
+.dropdown-content {
+  border: 1px solid rgb(127 29 29 / var(--tw-border-opacity)) !important;
+}
+
+/* .fc .fc-scrollgrid-liquid {
+  border-radius: 5px !important;
+} */
+
+.fc .fc-daygrid-event-harness {
+  min-width: 30px !important;
+
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  color: white !important;
+  background-color: white !important;
+  border-radius: 2px !important;
+  /* z-index: 1; */
+}
+
+input[type="datetime-local"]::-webkit-datetime-edit {
+  color: grey;
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  color: white !important;
+  background-color: white !important;
+  border-radius: 2px !important;
+  /* z-index: 1; */
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  color: white !important;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: white !important;
+  background-color: rgb(127 29 29 / var(--tw-border-opacity)) !important;
+  border-radius: 2px !important;
+}
+
+/* input[type="checkbox"]{
+  background: red !important;
+} */
+
+.fc .fc-toolbar-title {
+  font-size: 18px !important;
+  margin: 0;
+  text-transform: uppercase !important;
+}
+
+input[type="checkbox"]:checked {
+  background-color: blue;
+}
+
+input[type="checkbox"] {
+  accent-color: red;
+}
+
+.ReactModal__Overlay {
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+
+
+/* grid grid-cols-2 bg-stone-900 md:px-5 p-3 rounded-xl border-t-4 border-red-700 md:mx-5  mx-3 */
+
+.fc .fc-toolbar {
+  background-color: rgb(41, 37, 36) !important;
+  padding: 12px !important;
+  border-top: 5px red solid !important;
+}
+
+/* .text-white{
+  color:red !important
+} */
+
+.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
+  position: relative;
+  min-height: 2em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fc-direction-ltr .fc-daygrid-event.fc-event-end,
+.fc-direction-rtl .fc-daygrid-event.fc-event-start {
+  height: 15px;
+  border-radius: 10px !important;
+  margin-top: 10px;
+}
+
+.fc .fc-toolbar-title {
+  color: white !important;
+}
+
+.fc-theme-standard td,
+.fc-theme-standard th {
+  border: none !important;
+}
+
+thead[role='rowgroup'] {
+  background-color: white !important;
+}
+
+
+
+tr[role='row'] {
+  /* border-bottom: 0.5px solid lightgray !important; */
+  border-bottom: 0.5px solid rgb(185 28 28 / var(--tw-border-opacity)) !important;
+}
+
+tr[role='row']:hover {
+  background: rgb(184, 183, 183) !important;
+}
+
+.customRow[role='row'] {
+  border-bottom: rgb(28 25 23 / var(--tw-bg-opacity)) !important;
+}
+
+.customRow[role='row']:hover {
+  background: transparent !important;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+  margin-bottom: 0px !important;
+}
+
+
+/* .fc .fc-button-group > .fc-button:focus, .fc .fc-button-group > .fc-button:active, .fc .fc-button-group > .fc-button.fc-button-active {
+  z-index: 1;
+  border-radius: 10px !important;
+}
+
+.fc .fc-button-primary {
+  color: #fff;
+  color: var(--fc-button-text-color, #fff);
+  border-color: black;
+} */
+
+/* .fc-direction-ltr .fc-button-group > .fc-button:not(:first-child) {
+  margin-left: -1px;
+  border-radius: 10px !important;
+}
+.fc-direction-ltr .fc-button-group > .fc-button:not(:last-child) {
+
+  border-radius: 10px !important;
+} */
+
+/* .fc-button:hover{
+  background-color: black !important;
+  border-color: black !important;
+  color: red !important;
+}
+
+.fc .fc-button-group {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+  border-radius: 15px !important;
+  background: black;
+  border-radius: 15px !important;
+} */
+
+.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+  color: gray !important;
+}
+
+.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+  display: none !important;
+}
+
+.css-1sumxir-MuiFormLabel-root-MuiInputLabel-root {
+  display: none !important;
+}
+
+.css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root {
+  background-color: white !important;
+  padding: 3px !important;
+}
+
+
+/* .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
+  border: 2px solid rgb(127 29 29 / var(--tw-border-opacity)) !important;
+  
+} */
+
+.css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+  padding: 8px 14px !important;
+}
+
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.css-yk16xz-control {
+  background-color: black !important;
+  border-color: rgb(127 29 29 / var(--tw-border-opacity)) !important;
+  border-radius: 5px !important;
+  border-style: solid;
+  border-width: 2px !important;
+  height: 45px !important;
+
+}
+
+.css-yk16xz-control:hover {
+  background-color: black !important;
+  border-color: rgb(127 29 29 / var(--tw-border-opacity)) !important;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px !important;
+}
+
+.css-1pahdxg-control {
+  background-color: black !important;
+  border-color: rgb(127 29 29 / var(--tw-border-opacity)) !important;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: none !important;
+}
+
+.css-1pahdxg-control:hover {
+  background-color: black !important;
+  border-color: rgb(127 29 29 / var(--tw-border-opacity)) !important;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: none !important;
+}
+
+
+
+#react-select-2-input {
+  color: grey !important;
+  outline: none !important;
+}
+
+.css-1uccc91-singleValue {
+  color: grey !important;
+}
+
+.css-1g6gooi {
+  margin: 2px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  visibility: visible;
+  color: white !important;
+}
+
+.fixWidth {
+  min-width: 12.5% !important;
+  max-width: 12.5% !important;
+}
+
+.fc-Month-button {
+  background-color: red !important;
+}
+
+.f11 {
+  font-size: 11px;
+  line-height: 12px;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 600px) {
+  .fc .fc-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* flex-direction: column; */
+    font-size: 10px;
+  }
+
+  .fc .fc-toolbar-title {
+    font-size: 10px !important;
+    margin: 0;
+  }
+
+  .f10 {
+    font-size: 11px;
+    line-height: 12px;
+    flex-wrap: wrap;
+  }
+}
+
+.css-z2hyoe-ItemComponent.react-dropdown-select-item-selected {
+  background: rgb(127 29 29 / var(--tw-border-opacity)) !important;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.react-minimal-datetime-range__range-input-wrapper {
+  background-color: black !important;
+  border: 2px solid rgb(127 29 29 / var(--tw-border-opacity)) !important;
+  border-radius: 4px;
+  color: grey !important;
+  display: inline-block;
+  height: 40px !important;
+  padding: 8px 0 !important;
+  position: relative;
+  transition: all .3s;
+  width: 100%;
+}
+
+.react-minimal-datetime-range__icon-fill {
+  fill: rgb(127 29 29 / var(--tw-border-opacity)) !important;
+}
+
+.react-minimal-datetime-range__clear {
+  height: 25px !important;
+  width: 25px !important;
+}
+
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+  overflow: visible !important;
+}
+
+
+.rangecontainer {
+  width: 160px;
+  display: none !important;
+}
+
+.react-datetime-picker {
+  color: white !important;
+}
+
+.react-datetime-picker__calendar .react-calendar {
+  color: black !important;
+}
+
+.css-wmy1p7-ReactDropdownSelect {
+  border: 2px solid rgb(127 29 29 / var(--tw-border-opacity)) !important;
+  border-radius: 5px !important;
+  min-height: 40px !important;
+  margin-top: 5px !important;
+  color: grey !important;
+  font-size: 1rem !important;
+}
+
+.css-p79ng5-DropDown {
+  border: 1px solid rgb(127 29 29 / var(--tw-border-opacity)) !important;
+  background: #000 !important;
+  color: grey !important
+}
+
+.css-z2hyoe-ItemComponent {
+  border-bottom: none !important;
+}
+
+.css-16vukcu:hover,
+.css-16vukcu:focus-within {
+  border-color: rgb(127 29 29 / var(--tw-border-opacity)) !important;
+}
+
+.css-16vukcu:focus,
+.css-16vukcu:focus-within {
+  outline: 0px;
+  box-shadow: none !important;
+}
+
+.css-16vukcu {
+  border: 2px solid rgb(127 29 29 / var(--tw-border-opacity)) !important;
+  border-radius: 5px !important;
+  min-height: 40px !important;
+  margin-top: 5px !important;
+  color: grey !important;
+  font-size: 1rem !important;
+}
+
+.css-82t7el {
+  border: 1px solid rgb(127 29 29 / var(--tw-border-opacity)) !important;
+  background: #000 !important;
+  color: grey !important
+}
+
+.css-nfp1ut.react-dropdown-select-item-selected {
+  background: rgb(127 29 29 / var(--tw-border-opacity)) !important;
+  color: white !important;
+  border-bottom: none !important;
+}
+
+.css-z0d5hj {
+  border: 1px solid rgb(127 29 29 / var(--tw-border-opacity)) !important;
+  background: #000 !important;
+  color: grey !important
+}
+
+.css-nfp1ut {
+  border-bottom: none !important;
+}
+
+.css-1uwabd6 {
+  justify-content: space-between !important;
+}
+
+input[type="month"]::-webkit-calendar-picker-indicator {
+  color: white !important;
+  background-color: rgb(127 29 29 / var(--tw-border-opacity)) !important;
+  border-radius: 2px !important;
+}
+
+/* .tables .theads .ths:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+}
+
+.tables .tbodys .ths {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+} */
+.swiper-button-prev,
+.swiper-button-next {
+  color: white !important;
+  /* height: 20px !important;
+  width: 20px !important; */
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 20px !important;
+}
