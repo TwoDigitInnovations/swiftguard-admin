@@ -22,17 +22,20 @@ const Payroll = (props) => {
     const [guardHistory, setGuardHistory] = useState([]);
     const [totalCount, setTotalCount] = useState(0);
     const [pageCount, setPageCount] = useState(1);
-
-    // pageIndex localStorage me save karein
-    const [pageIndex, setPageIndex] = useState(() => {
-        return Number(localStorage.getItem("payrollPageIndex")) || 1;
-    });
-
+    const [pageIndex, setPageIndex] = useState(1);
     const [pageSize, setPageSize] = useState(10);
     const [loading, setLoading] = useState(false);
 
+
     useEffect(() => {
-        // jab pageIndex change ho to save karein
+        if (typeof window !== "undefined") {
+            const savedIndex = Number(localStorage.getItem("payrollPageIndex")) || 1;
+            setPageIndex(savedIndex);
+        }
+    }, []);
+
+
+    useEffect(() => {
         localStorage.setItem("payrollPageIndex", pageIndex);
     }, [pageIndex]);
 
@@ -41,6 +44,8 @@ const Payroll = (props) => {
     }, [pageIndex, pageSize]);
 
     const checkHistory = () => {
+        if (typeof window === "undefined") return; // 🚀 skip during SSR
+
         const history = localStorage.getItem("history");
         if (history) {
             try {
