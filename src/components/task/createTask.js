@@ -830,7 +830,7 @@ const CreateTask = (props) => {
             </div>
 
             <div className="grid grid-cols-1 ">
-              <p className="text-white text-lg font-semibold">Client Rate per hour</p>
+              <p className="text-white text-lg font-semibold">Guard Rate Per Hour</p>
               <input
                 value={jobInfo.amount}
                 onChange={(text) => {

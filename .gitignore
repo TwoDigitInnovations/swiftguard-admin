@@ -1,10 +1,12 @@
 # dependencies
 /node_modules
+node_modules
 /.pnp
 .pnp.js
 
 # next.js build output
 /.next
+.next
 /out
 
 # dotenv environment variables file

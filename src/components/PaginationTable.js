@@ -237,7 +237,7 @@ function PaginationTable({
                                     value={pageSize}
                                     onChange={(e) => handlePageSizeChange(e.target.value)}
                                 >
-                                    {[10, 20, 50].map((size) => (
+                                    {[ 20, 50].map((size) => (
                                         <option key={size} value={size} className="text-white">
                                             Show {size}
                                         </option>

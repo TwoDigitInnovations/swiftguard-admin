@@ -213,7 +213,7 @@ const Register = (props) => {
 
           <div className="grid md:grid-cols-2 grid-cols-1 mt-3 items-start">
             <div className="grid grid-cols-1 md:mr-2">
-              <p className="text-white text-lg font-semibold">Rate per hour</p>
+              <p className="text-white text-lg font-semibold">Client Rate Per Hour</p>
               <input
                 value={clientObj.rate}
                 type="number"
@@ -227,7 +227,7 @@ const Register = (props) => {
               )}
             </div>
             <div className="grid grid-cols-1 ">
-              <p className="text-white text-lg font-semibold">Worker Rate per hour</p>
+              <p className="text-white text-lg font-semibold">Worker Rate Per Hour</p>
               <input
                 value={clientObj.WorkerRatePerHour}
                 type="number"

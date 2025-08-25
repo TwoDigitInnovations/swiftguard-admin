@@ -23,7 +23,7 @@ const Payroll = (props) => {
     const [totalCount, setTotalCount] = useState(0);
     const [pageCount, setPageCount] = useState(1);
     const [pageIndex, setPageIndex] = useState(1);
-    const [pageSize, setPageSize] = useState(10);
+    const [pageSize, setPageSize] = useState(20);
     const [loading, setLoading] = useState(false);
 
 
@@ -163,6 +163,7 @@ const Payroll = (props) => {
         );
     }
 
+    
     const columns = useMemo(
         () => [
             {
