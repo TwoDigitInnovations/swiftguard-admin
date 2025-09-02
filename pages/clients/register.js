@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/no-unknown-property */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Api } from "../../src/services/service";
 import { checkForEmptyKeys } from "../../src/services/InputsNullChecker";
 import LocationDropdown from "../../src/components/LocationDropdown";
+import { userContext } from "../_app";
 
 const options = [];
 
@@ -11,6 +12,7 @@ const Register = (props) => {
   const { clienID } = props;
   const [submitted, setSubmitted] = useState(false);
   const [taskList, setTaskList] = useState([]);
+  const [user, setUser] = useContext(userContext)
   const [clientObj, setClientObj] = useState({
     fullName: "",
     billingName: "",
@@ -77,14 +79,20 @@ const Register = (props) => {
     });
   };
   const submit = () => {
-    const user = localStorage.getItem("userDetail");
+    // const user = localStorage.getItem("userDetail");
 
     let { anyEmptyInputs } = checkForEmptyKeys(clientObj);
     if (anyEmptyInputs.length > 0) {
       setSubmitted(true);
       return;
     }
-    Api("post", "provider/regClient", clientObj, props.router).then((res) => {
+    const Client = {
+      ...clientObj,
+      organization: user.isOrganization ? user._id : undefined
+    };
+
+
+    Api("post", "provider/regClient", Client, props.router).then((res) => {
       props.loader(false);
       props.setShowForm(false);
       props.getClientList();
@@ -102,6 +110,7 @@ const Register = (props) => {
           phoneNumber: "",
           clientRef: "",
           billingcycle: "Weekly",
+          discount: ""
         });
       } else {
         props.toaster({ type: "error", message: res.message });
@@ -110,7 +119,7 @@ const Register = (props) => {
   };
 
   const Update = () => {
-    const user = localStorage.getItem("userDetail");
+
     let { anyEmptyInputs } = checkForEmptyKeys(clientObj);
     console.log(anyEmptyInputs);
     if (anyEmptyInputs.length > 0) {
@@ -121,7 +130,12 @@ const Register = (props) => {
       }
     }
 
-    Api("put", `provider/client/${clienID}`, clientObj, props.router).then(
+    const Client = {
+      ...clientObj,
+      organization: user.isOrganization ? user._id : undefined
+    };
+
+    Api("put", `provider/client/${clienID}`, Client, props.router).then(
       (res) => {
         props.loader(false);
         props.setShowForm(false);
