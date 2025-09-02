@@ -189,7 +189,6 @@ const ClientsList = (props) => {
               setShowForm(!showForm);
             }}
           >
-            {/* {showForm ? "Close" : "Create New Task"} */}
             Register New Client
           </button>
         )}
