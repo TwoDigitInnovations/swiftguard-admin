@@ -1,6 +1,10 @@
 import axios from "axios";
-import * as pdfmake from 'pdfmake/build/pdfmake';
-import * as pdffonts from 'pdfmake/build/vfs_fonts';
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+
+// set fonts
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
 // const ConstantsUrl = "http://apis.jjowen.co.uk/v1/api/";
 const ConstantsUrl = "https://apis.jjowen.co.uk/v1/api/";
 // const ConstantsUrl = "http://localhost:3005/v1/api/";
@@ -133,13 +137,15 @@ const timeSince = (date) => {
 
 const pdfDownload = async (fileName, data) => {
   return new Promise(function (resolve, reject) {
-    const columns = Object.keys(data[0]); // Get the column names from the first object in the array
+    const columns = Object.keys(data[0]); 
+
     console.log(columns)
-    const headers = columns.map((column) => ({ text: column, style: 'tableHeader' })); // Generate header cells for each column
+    const headers = columns.map((column) => ({ text: column, style: 'tableHeader' })); 
+
     console.log(headers)
     const rows = data.map((user, i) => {
-      const cells = columns.map((column) => ({ text: user[column], style: i % 2 == 0 ? 'firstRow' : 'secondRow' })); // Generate cells for each row based on the column names
-      return cells; // Merge cells and order cells into a single array
+      const cells = columns.map((column) => ({ text: user[column], style: i % 2 == 0 ? 'firstRow' : 'secondRow' })); 
+      return cells; 
     });
     const newData = [headers, ...rows]
     console.log(newData)
@@ -184,10 +190,10 @@ const pdfDownload = async (fileName, data) => {
     };
 
 
-    let pdf = pdfmake
-    pdf.vfs = pdffonts.pdfMake.vfs;
+    // let pdf = pdfmake
+    // pdf.vfs = pdffonts.pdfMake.vfs;
 
-    pdfmake.createPdf(docDefinition).getDataUrl((blob) => {
+    pdfMake.createPdf(docDefinition).getDataUrl((blob) => {
       console.log('pdf======>', blob)
 
       resolve(blob)
@@ -197,6 +203,7 @@ const pdfDownload = async (fileName, data) => {
 
 
 }
+
 function sortByMonth(arr) {
   var months = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
