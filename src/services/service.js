@@ -3,7 +3,7 @@ import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 
 // set fonts
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+// pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 // const ConstantsUrl = "http://apis.jjowen.co.uk/v1/api/";
 const ConstantsUrl = "https://apis.jjowen.co.uk/v1/api/";
