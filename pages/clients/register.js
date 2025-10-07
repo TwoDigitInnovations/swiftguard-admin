@@ -16,8 +16,8 @@ const Register = (props) => {
   const [clientObj, setClientObj] = useState({
     fullName: "",
     billingName: "",
-    WorkerRatePerHour: "",
-    TaskType: "",
+    // WorkerRatePerHour: "",
+    // TaskType: "",
     rate: "",
     vat: "",
     address: "",
@@ -43,8 +43,8 @@ const Register = (props) => {
               rate: client.rate,
               vat: client.vat,
               address: client.address,
-              WorkerRatePerHour: client.WorkerRatePerHour,
-              TaskType: client.TaskType,
+              // WorkerRatePerHour: client.WorkerRatePerHour,
+              // TaskType: client.TaskType,
               billingAddress: client.billingAddress,
               email: client.email,
               phoneNumber: client.phoneNumber,
@@ -88,10 +88,11 @@ const Register = (props) => {
     }
     const Client = {
       ...clientObj,
-      organization: user.isOrganization ? user._id : undefined
+      organization: user.isOrganization ? user.id : undefined
     };
-
-
+    console.log(user.isOrganization);
+    console.log(user.id);
+    console.log(Client);
     Api("post", "provider/regClient", Client, props.router).then((res) => {
       props.loader(false);
       props.setShowForm(false);
@@ -103,8 +104,8 @@ const Register = (props) => {
           rate: "",
           vat: "",
           address: "",
-          WorkerRatePerHour: "",
-          TaskType: "",
+          // WorkerRatePerHour: "",
+          // TaskType: "",
           billingAddress: "",
           email: "",
           phoneNumber: "",
@@ -132,7 +133,7 @@ const Register = (props) => {
 
     const Client = {
       ...clientObj,
-      organization: user.isOrganization ? user._id : undefined
+      organization: user.isOrganization ? user.id : undefined
     };
 
     Api("put", `provider/client/${clienID}`, Client, props.router).then(
@@ -147,8 +148,8 @@ const Register = (props) => {
             rate: "",
             vat: "",
             address: "",
-            WorkerRatePerHour: "",
-            TaskType: "",
+            // WorkerRatePerHour: "",
+            // TaskType: "",
             billingAddress: "",
             email: "",
             phoneNumber: "",
@@ -240,7 +241,7 @@ const Register = (props) => {
                 <p className="text-red-700 mt-1">Rate is required</p>
               )}
             </div>
-            <div className="grid grid-cols-1 ">
+            {/* <div className="grid grid-cols-1 ">
               <p className="text-white text-lg font-semibold">Worker Rate Per Hour</p>
               <input
                 value={clientObj.WorkerRatePerHour}
@@ -253,7 +254,7 @@ const Register = (props) => {
               {submitted && clientObj.WorkerRatePerHour === "" && (
                 <p className="text-red-700 mt-1">Worker Rate Per Hour is required</p>
               )}
-            </div>
+            </div> */}
 
             <div className="grid grid-cols-1 md:mr-2 mt-2">
               <p className="text-white text-lg font-semibold">Vat (%)</p>
@@ -269,7 +270,7 @@ const Register = (props) => {
                 <p className="text-red-700 mt-1">Vat is required</p>
               )}
             </div>
-            <div className="grid grid-cols-1 mt-3">
+            {/* <div className="grid grid-cols-1 mt-3">
               <p className="text-white text-lg font-semibold">Task Type</p>
               <select
                 value={clientObj.TaskType}
@@ -292,7 +293,7 @@ const Register = (props) => {
               {submitted && clientObj.TaskType === "" && (
                 <p className="text-red-700 mt-1">Task Type is required</p>
               )}
-            </div>
+            </div> */}
 
           </div>
           <div className="grid md:grid-cols-2 grid-cols-1 mt-3 items-start">
