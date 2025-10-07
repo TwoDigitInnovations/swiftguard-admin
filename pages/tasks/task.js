@@ -231,7 +231,6 @@ const Task = (props) => {
         if (res?.status) {
           setDateObj({ startDate, endDate });
           // setJobList(res.data.jobs);
-
           setAdminjobList(res.data.jobs);
           setDashStatus({
             pendingJob: res?.data?.pendingJob || 0,
@@ -442,7 +441,7 @@ const Task = (props) => {
 
   return (
     <div className="overflow-auto  h-screen bg-black ">
-      < div className="px-5 pt-2">
+      < div className="px-5 md:pt-2 pt-6">
         <div className="grid md:grid-cols-3 grid-col-1 gap-3">
           <div className="border-2  border-customGray  border-t-red-700 border-t-4 relative flex justify-center    cursor-pointer" >
             <div className="bg-customGray w-full flex justify-between items-center h-16 rounded-md px-5">
